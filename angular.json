@@ -77,6 +77,14 @@
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
+          "configurations": { 
+            "production": {
+              "sourceMap": false,
+              "codeCoverage": true,
+              "browsers": "ChromeHeadless",
+              "watch": false
+            }
+          },
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -116,6 +124,9 @@
               "devServerTarget": "angular-deploy:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
